@@ -4,7 +4,7 @@ import streamlit as st
 HOME_AIRPORTS = ('LGW', 'LIS', 'LYS')
 PAIRED_AIRPORTS = ('FUE', 'AMS', 'ORY')
 
-#df = pd.read_parquet('trafic_10lines.parquet')
+df = pd.read_parquet('data/traffic_10lines.parquet')
 
 st.title('Traffic Forecaster')
 
@@ -23,4 +23,6 @@ st.write('Paired Airport selected:', paired_airport)
 st.write('Days of forecast:', nb_days)
 st.write('Date selected:', forecast_date)
 
-#st.write(df.query('home_airport = "{}"'.format(home_airport)).shape[0])
+
+# Affichage de la table
+st.dataframe(data=df, width=600, height=300)
